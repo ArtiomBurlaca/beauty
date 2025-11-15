@@ -1,8 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import Greeting from './Greeting';
 
-function App() {
+function Home() {
+  const navigate = useNavigate();
+
   return (
     <div className="App">
       <header className="App-header">
@@ -10,6 +14,12 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <button
+          className="App-button"
+          onClick={() => navigate('/greeting')}
+        >
+          Mergi la ecranul de salut
+        </button>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -20,6 +30,17 @@ function App() {
         </a>
       </header>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/greeting" element={<Greeting />} />
+      </Routes>
+    </Router>
   );
 }
 
