@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+    frontend:
+      container_name: beauty-frontend
+      image: ${FRONTEND_IMAGE}
+      restart: always
+      ports:
+        - "3000:80"
+      networks:
+        - beauty_net
