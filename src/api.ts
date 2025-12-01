@@ -5,3 +5,5 @@ export async function checkBackend() {
   if (!resp.ok) throw new Error("Backend error!");
   return resp.json ? await resp.json() : {};
 }
+
+
